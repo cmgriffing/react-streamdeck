@@ -1,8 +1,37 @@
 {
-  "short_name": "react-streamdeck",
-  "name": "react-streamdeck",
-  "start_url": "./index.html",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "Actions": [
+    {
+      "Icon": "action/images/actionimage",
+      "Name": "Example Action",
+      "States": [
+        {
+          "Image": "action/images/action"
+        }
+      ],
+      "Tooltip": "This is an example tooltip",
+      "UUID": "com.cmg.testing.action"
+    }
+  ],
+  "SDKVersion": 2,
+  "Author": "Elgato Systems",
+  "CodePath": "index.html",
+  "PropertyInspectorPath": "propertyinspector/index.html",
+  "Description": "Example description",
+  "Name": "Stream Deck Template",
+  "Icon": "action/images/action",
+  "URL": "https://www.elgato.com/en/gaming/stream-deck",
+  "Version": "1.0.0",
+  "OS": [
+    {
+      "Platform": "mac",
+      "MinimumVersion": "10.11"
+    },
+    {
+      "Platform": "windows",
+      "MinimumVersion": "10"
+    }
+  ],
+  "Software": {
+    "MinimumVersion": "4.1"
+  }
 }
