@@ -13,6 +13,8 @@ import {
   SDRangeSlider,
   SDRangeWithLabels,
   SDRadioInput,
+  SDCheckbox,
+  SDMultiCheckbox,
   createUsePluginSettings,
   createUseGlobalSettings
 } from "react-streamdeck";
@@ -51,7 +53,45 @@ export default function App() {
       selectState: "",
       selectedListState: [],
       rangeSliderState: 50,
-      radioState: null
+      radioState: null,
+      checkboxState: false,
+      multiCheckboxState: [
+        {
+          label: "Monday",
+          key: "mon",
+          value: false
+        },
+        {
+          label: "Tuesday",
+          key: "tue",
+          value: false
+        },
+        {
+          label: "Wednesday",
+          key: "wed",
+          value: false
+        },
+        {
+          label: "Thursday",
+          key: "thu",
+          value: false
+        },
+        {
+          label: "Friday",
+          key: "fri",
+          value: false
+        },
+        {
+          label: "Saturday",
+          key: "sat",
+          value: false
+        },
+        {
+          label: "Sunday",
+          key: "sun",
+          value: false
+        }
+      ]
     },
     connectedResult
   );
@@ -252,6 +292,34 @@ export default function App() {
           const newState = {
             ...settings,
             radioState: value
+          };
+          setSettings(newState);
+        }}
+      />
+      <SDCheckbox
+        label="Checkbox"
+        value={settings.checkboxState}
+        onChange={(_, value) => {
+          const newState = {
+            ...settings,
+            checkboxState: value
+          };
+          setSettings(newState);
+        }}
+      />
+      <SDMultiCheckbox
+        label="MultiCheckbox"
+        options={settings.multiCheckboxState.map(checkboxState => {
+          return {
+            label: checkboxState.label,
+            key: checkboxState.key,
+            value: checkboxState.value
+          };
+        })}
+        onChange={(_, value) => {
+          const newState = {
+            ...settings,
+            multiCheckboxState: value
           };
           setSettings(newState);
         }}

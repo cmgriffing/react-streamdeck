@@ -12,6 +12,8 @@ import SDSelectInput from "./components/SelectInput";
 import { SDList, SDListSelect, SDListMultiSelect } from "./components/List";
 import { SDRangeSlider, SDRangeWithLabels } from "./components/RangeSlider";
 import SDRadioInput from "./components/RadioInput";
+import SDCheckbox from "./components/Checkbox";
+import SDMultiCheckbox from "./components/MultiCheckbox";
 
 export {
   ExampleComponent,
@@ -24,6 +26,8 @@ export {
   SDRangeSlider,
   SDRangeWithLabels,
   SDRadioInput,
+  SDCheckbox,
+  SDMultiCheckbox,
   createUseSDAction,
   createUsePluginSettings,
   createUseGlobalSettings
@@ -42,5 +46,7 @@ export default {
   SDListMultiSelect,
   SDRangeSlider,
   SDRangeWithLabels,
-  SDRadioInput
+  SDRadioInput,
+  SDCheckbox,
+  SDMultiCheckbox
 };
