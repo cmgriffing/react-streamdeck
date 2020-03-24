@@ -10,6 +10,9 @@ import {
   SDList,
   SDListSelect,
   SDListMultiSelect,
+  SDRangeSlider,
+  SDRangeWithLabels,
+  SDRadioInput,
   createUsePluginSettings,
   createUseGlobalSettings
 } from "react-streamdeck";
@@ -46,7 +49,9 @@ export default function App() {
       textState: "",
       numberState: 0,
       selectState: "",
-      selectedListState: []
+      selectedListState: [],
+      rangeSliderState: 50,
+      radioState: null
     },
     connectedResult
   );
@@ -182,6 +187,71 @@ export default function App() {
           const newState = {
             ...settings,
             selectedListState: event
+          };
+          setSettings(newState);
+        }}
+      />
+
+      <SDRangeSlider
+        onChange={event => {
+          const newState = {
+            ...settings,
+            rangeSliderState: +event.target.value
+          };
+          setSettings(newState);
+        }}
+        label="Range Slider"
+        min={0}
+        max={100}
+        value={+settings.rangeSliderState}
+      />
+
+      <SDRangeWithLabels
+        onChange={event => {
+          const newState = {
+            ...settings,
+            rangeSliderState: +event.target.value
+          };
+          setSettings(newState);
+        }}
+        label="Range Slider"
+        min={0}
+        max={100}
+        value={+settings.rangeSliderState}
+      />
+      <SDRangeWithLabels
+        onChange={event => {
+          const newState = {
+            ...settings,
+            rangeSliderState: +event.target.value
+          };
+          setSettings(newState);
+        }}
+        label="Range Slider"
+        min={0}
+        max={100}
+        step={25}
+        value={+settings.rangeSliderState}
+      />
+      <SDRadioInput
+        label="Radio Test"
+        value={settings.radioState}
+        options={[
+          {
+            label: "On",
+            value: true
+          },
+          {
+            label: "Off",
+            value: false
+          }
+        ]}
+        onChange={(event, value) => {
+          console.log("radio change", event.target.value, value);
+
+          const newState = {
+            ...settings,
+            radioState: value
           };
           setSettings(newState);
         }}

@@ -10,6 +10,8 @@ import SDNumberInput from "./components/NumberInput";
 import SDTextInput from "./components/TextInput";
 import SDSelectInput from "./components/SelectInput";
 import { SDList, SDListSelect, SDListMultiSelect } from "./components/List";
+import { SDRangeSlider, SDRangeWithLabels } from "./components/RangeSlider";
+import SDRadioInput from "./components/RadioInput";
 
 export {
   ExampleComponent,
@@ -19,6 +21,9 @@ export {
   SDList,
   SDListSelect,
   SDListMultiSelect,
+  SDRangeSlider,
+  SDRangeWithLabels,
+  SDRadioInput,
   createUseSDAction,
   createUsePluginSettings,
   createUseGlobalSettings
@@ -34,5 +39,8 @@ export default {
   SDSelectInput,
   SDList,
   SDListSelect,
-  SDListMultiSelect
+  SDListMultiSelect,
+  SDRangeSlider,
+  SDRangeWithLabels,
+  SDRadioInput
 };
