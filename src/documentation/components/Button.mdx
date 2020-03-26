@@ -9,17 +9,17 @@ menu: 🔌 Components
 import { Props, Playground } from "docz";
 import SDButton from "../../components/Button";
 
-import "../../css/sdpi.scss";
-
 ## Example
 
 <Playground>
-  <SDButton
-    text="Click Me!!!"
-    onClick={event => {
-      console.log("I was clicked.");
-    }}
-  />
+  <div class="docz-sdpi-wrapper">
+    <SDButton
+      text="Click Me!!!"
+      onClick={event => {
+        console.log("I was clicked.");
+      }}
+    />
+  </div>
 </Playground>
 
 ## Props

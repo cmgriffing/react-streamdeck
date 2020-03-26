@@ -102,7 +102,7 @@ export function SDList(props: Props) {
 
   return (
     <div className="sdpi-item list">
-      <div className="sdpi-item-label">{label}}</div>
+      <div className="sdpi-item-label">{label}</div>
       {listElement}
     </div>
   );

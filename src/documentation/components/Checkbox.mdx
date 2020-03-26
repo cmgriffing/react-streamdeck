@@ -14,14 +14,16 @@ window.checkboxState = false;
 ## Example
 
 <Playground>
-  <SDCheckbox
-    label="Checkbox"
-    checked={checkboxState}
-    onChange={value => {
-      console.log("I was changed.", value);
-      checkboxState = value;
-    }}
-  />
+  <div class="docz-sdpi-wrapper">
+    <SDCheckbox
+      label="Checkbox"
+      checked={checkboxState}
+      onChange={value => {
+        console.log("I was changed.", value);
+        checkboxState = value;
+      }}
+    />
+  </div>
 </Playground>
 
 ## Props

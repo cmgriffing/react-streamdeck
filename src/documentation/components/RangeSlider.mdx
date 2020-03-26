@@ -17,25 +17,27 @@ This is the base List component. Other List components wrap this one with other 
 ### Example
 
 <Playground>
-  <DemoStateContainer
-    initialState={{
-      rangeSliderState: ''
-    }}
-  >
-    {({setState, state: { rangeSliderState }}) => (
-      <SDRangeSlider
-        label="Range Slider"
-        min={0}
-        max={100}
-        value={+rangeSliderState}
-        onChange={event => {
-          setState({
-            rangeSliderState: +event.target.value
-          });
-        }}
-      />
-    )}
-  </DemoStateContainer>
+  <div class="docz-sdpi-wrapper">
+    <DemoStateContainer
+      initialState={{
+        rangeSliderState: ''
+      }}
+    >
+      {({setState, state: { rangeSliderState }}) => (
+        <SDRangeSlider
+          label="Range Slider"
+          min={0}
+          max={100}
+          value={+rangeSliderState}
+          onChange={event => {
+            setState({
+              rangeSliderState: +event.target.value
+            });
+          }}
+        />
+      )}
+    </DemoStateContainer>
+  </div>
 </Playground>
 
 ### Props
@@ -49,25 +51,27 @@ This component is a single selectable list that wraps the base component.
 ### Example
 
 <Playground>
-  <DemoStateContainer
-    initialState={{
-      rangeSliderState: ''
-    }}
-  >
-    {({setState, state: { rangeSliderState }}) => (
-      <SDRangeWithLabels
-        label="Range Slider"
-        min={0}
-        max={100}
-        value={+rangeSliderState}
-        onChange={event => {
-          setState({
-            rangeSliderState: +event.target.value
-          });
-        }}
-      />
-    )}
-  </DemoStateContainer>
+  <div class="docz-sdpi-wrapper">
+    <DemoStateContainer
+      initialState={{
+        rangeSliderState: ''
+      }}
+    >
+      {({setState, state: { rangeSliderState }}) => (
+        <SDRangeWithLabels
+          label="Range Slider"
+          min={0}
+          max={100}
+          value={+rangeSliderState}
+          onChange={event => {
+            setState({
+              rangeSliderState: +event.target.value
+            });
+          }}
+        />
+      )}
+    </DemoStateContainer>
+  </div>
 </Playground>
 
 ### Props

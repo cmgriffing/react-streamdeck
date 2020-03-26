@@ -1,3 +1,5 @@
 import React from "react";
 
-export default ({ children }) => <div className="sdpi-wrapper">{children}</div>;
+import "../../../src/css/docz.css";
+
+export default ({ children }) => <div>{children}</div>;

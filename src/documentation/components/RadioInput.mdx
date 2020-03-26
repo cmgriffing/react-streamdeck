@@ -24,25 +24,27 @@ window.radioOptions = [
 ## Example
 
 <Playground>
-  <DemoStateContainer
-    initialState={{
-      radioState: ''
-    }}
-  >
-    {({setState, state: { radioState }}) => (
-      <SDRadioInput
-        label="Radio Input"
-        value={radioState}
-        options={radioOptions}
-        onChange={(event, value) => {
-          console.log("I was changed.", event.target.value, value);
-          setState({
-            radioState: value
-          })
-        }}
-      />
-    )}
-  </DemoStateContainer>
+  <div class="docz-sdpi-wrapper">
+    <DemoStateContainer
+      initialState={{
+        radioState: ''
+      }}
+    >
+      {({setState, state: { radioState }}) => (
+        <SDRadioInput
+          label="Radio Input"
+          value={radioState}
+          options={radioOptions}
+          onChange={(event, value) => {
+            console.log("I was changed.", event.target.value, value);
+            setState({
+              radioState: value
+            })
+          }}
+        />
+      )}
+    </DemoStateContainer>
+  </div>
 </Playground>
 
 ## Props

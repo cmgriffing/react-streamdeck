@@ -31,7 +31,9 @@ This is the base List component. Other List components wrap this one with other 
 ### Example
 
 <Playground>
-  <SDList label="List" options={listOptions} />
+  <div class="docz-sdpi-wrapper">
+    <SDList label="List" options={listOptions} />
+  </div>
 </Playground>
 
 ### Props
@@ -45,25 +47,27 @@ This component is a single selectable list that wraps the base component.
 ### Example
 
 <Playground>
-  <DemoStateContainer
-    initialState={{
-      listState: ''
-    }}
-  >
-    {({setState, state: { listState }}) => (
-      <SDListSelect
-        label="List (selectable)"
-        selectedOptions={listState}
-        options={listOptions}
-        onChange={value => {
-          console.log("I was changed.", value);
-          setState({
-            listState: value
-          })
-        }}
-      />
-    )}
-  </DemoStateContainer>
+  <div class="docz-sdpi-wrapper">
+    <DemoStateContainer
+      initialState={{
+        listState: ''
+      }}
+    >
+      {({setState, state: { listState }}) => (
+        <SDListSelect
+          label="List (selectable)"
+          selectedOptions={listState}
+          options={listOptions}
+          onChange={value => {
+            console.log("I was changed.", value);
+            setState({
+              listState: value
+            })
+          }}
+        />
+      )}
+    </DemoStateContainer>
+  </div>
 </Playground>
 
 ### Props
@@ -77,25 +81,27 @@ This component is a single selectable list that wraps the base component.
 ### Example
 
 <Playground>
-  <DemoStateContainer
-    initialState={{
-      listState: ''
-    }}
-  >
-    {({setState, state: { listState }}) => (
-      <SDListMultiSelect
-        label="List (multi selectable)"
-        selectedOptions={listState}
-        options={listOptions}
-        onChange={value => {
-          console.log("I was changed.", value);
-          setState({
-            listState: value
-          })
-        }}
-      />
-    )}
-  </DemoStateContainer>
+  <div class="docz-sdpi-wrapper">
+    <DemoStateContainer
+      initialState={{
+        listState: ''
+      }}
+    >
+      {({setState, state: { listState }}) => (
+        <SDListMultiSelect
+          label="List (multi selectable)"
+          selectedOptions={listState}
+          options={listOptions}
+          onChange={value => {
+            console.log("I was changed.", value);
+            setState({
+              listState: value
+            })
+          }}
+        />
+      )}
+    </DemoStateContainer>
+  </div>
 </Playground>
 
 ### Props

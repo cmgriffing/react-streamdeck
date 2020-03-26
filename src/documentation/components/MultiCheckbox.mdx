@@ -50,23 +50,25 @@ window.multiCheckboxOptions = [
 ## Example
 
 <Playground>
-  <DemoStateContainer
-    initialState={{
-      multiCheckboxState: multiCheckboxOptions
-    }}
-  >
-    {({setState, state: { multiCheckboxState }}) => (
-      <SDMultiCheckbox
-        label="MultiCheckbox"
-        options={multiCheckboxState}
-        onChange={(_, value) => {
-          setState({
-            multiCheckboxState: value
-          });
-        }}
-      />
-    )}
-  </DemoStateContainer>
+  <div class="docz-sdpi-wrapper">
+    <DemoStateContainer
+      initialState={{
+        multiCheckboxState: multiCheckboxOptions
+      }}
+    >
+      {({setState, state: { multiCheckboxState }}) => (
+        <SDMultiCheckbox
+          label="MultiCheckbox"
+          options={multiCheckboxState}
+          onChange={(_, value) => {
+            setState({
+              multiCheckboxState: value
+            });
+          }}
+        />
+      )}
+    </DemoStateContainer>
+  </div>
 </Playground>
 
 ## Props
