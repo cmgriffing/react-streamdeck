@@ -1,0 +1,106 @@
+---
+name: 🔗 Hooks
+route: /hooks
+---
+
+# Hooks
+
+These hooks are used to connect your React application into the StreamDeck from the Property Inspector page.
+
+They need to be run within the Property Inspector context so these examples are a bit contrived.
+
+Currently with how this application is bundled, you must create the hooks using our Factory functions. These take in the hooks they require as arguments to make sure that we do not have conflicting React versions.
+
+Eventually it might make sense to extract these to their own library and set up the build and deploy process better for Hooks.
+
+## createUseSDAction
+
+This hook is used to bind to the result of StreamDeck Actions or Events.
+
+### Example
+
+```javascript
+import { useState, useEffect } from "react-streamdeck";
+
+const useSDAction = createUseSDAction({
+  useState,
+  useEffect
+});
+
+export default function App() {
+  const connectedResult = useSDAction("connected");
+
+  // Holds the most recent message sent from the plugin to the property inspector.
+  const sendToPropertyInspectorResult = useSDAction("sendToPropertyInspector");
+
+  return (
+    <div>
+      <div>
+        connectedResult:
+        <pre>
+          <code>{JSON.stringify(connectedResult)}</code>
+        </pre>
+      </div>
+      <div>
+        sendToPropertyInspectorResult:
+        <pre>
+          <code>{JSON.stringify(sendToPropertyInspectorResult)}</code>
+        </pre>
+      </div>
+    </div>
+  );
+}
+```
+
+## createUsePluginSettings
+
+This hook consumes and updates when the Plugin Settings update. It is how we fetch the initial form state from previous uses and it is how we update that state for later.
+
+### Example
+
+```javascript
+import { useState, useEffect } from "react";
+import {
+  createUseSDAction,
+  createUsePluginSettings,
+  SDTextInput
+} from "react-streamdeck";
+
+// We need this for the initial connection
+const useSDAction = createUseSDAction({
+  useState,
+  useEffect
+});
+
+const usePluginSettings = createUsePluginSettings({
+  useState,
+  useEffect,
+  useReducer
+});
+
+export default function App() {
+  // usePluginSettings depends on the connectedResult
+  const connectedResult = useSDAction("connected");
+
+  const [settings, setSettings] = usePluginSettings(
+    {
+      textState: ""
+    },
+    connectedResult
+  );
+
+  return (
+    <SDTextInput
+      value={settings.textState}
+      label="Testing"
+      onChange={event => {
+        const newState = {
+          ...settings,
+          textState: event.target.value
+        };
+        setSettings(newState);
+      }}
+    />
+  );
+}
+```

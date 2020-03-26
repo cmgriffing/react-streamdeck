@@ -1,0 +1,75 @@
+---
+name: RangeSlider
+route: /components/range-slider
+menu: 🔌 Components
+---
+
+# RangeSlider
+
+import { Props, Playground } from "docz";
+import { SDRangeSlider, SDRangeWithLabels } from "../../components/RangeSlider";
+import DemoStateContainer from "react-component-component";
+
+## SDRangeSlider (Base)
+
+This is the base List component. Other List components wrap this one with other default config options.
+
+### Example
+
+<Playground>
+  <DemoStateContainer
+    initialState={{
+      rangeSliderState: ''
+    }}
+  >
+    {({setState, state: { rangeSliderState }}) => (
+      <SDRangeSlider
+        label="Range Slider"
+        min={0}
+        max={100}
+        value={+rangeSliderState}
+        onChange={event => {
+          setState({
+            rangeSliderState: +event.target.value
+          });
+        }}
+      />
+    )}
+  </DemoStateContainer>
+</Playground>
+
+### Props
+
+<Props of={SDRangeSlider} />
+
+## SDRangeWithLabels
+
+This component is a single selectable list that wraps the base component.
+
+### Example
+
+<Playground>
+  <DemoStateContainer
+    initialState={{
+      rangeSliderState: ''
+    }}
+  >
+    {({setState, state: { rangeSliderState }}) => (
+      <SDRangeWithLabels
+        label="Range Slider"
+        min={0}
+        max={100}
+        value={+rangeSliderState}
+        onChange={event => {
+          setState({
+            rangeSliderState: +event.target.value
+          });
+        }}
+      />
+    )}
+  </DemoStateContainer>
+</Playground>
+
+### Props
+
+See [Base Props](#props). This wrapper passes `showMinMax: true` under the hood.

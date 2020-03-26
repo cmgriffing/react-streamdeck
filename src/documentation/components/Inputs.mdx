@@ -1,0 +1,45 @@
+---
+name: Inputs
+route: /components/inputs
+menu: 🔌 Components
+---
+
+# Inputs
+
+import { Props, Playground } from "docz";
+import SDTextInput from "../../components/TextInput";
+import SDNumberInput from "../../components/NumberInput";
+
+## Text Input
+
+### Example
+
+<Playground>
+  <SDTextInput
+    label="Text Input"
+    onChange={event => {
+      console.log("I was changed.", event.target.value);
+    }}
+  />
+</Playground>
+
+### Props
+
+<Props of={SDTextInput} />
+
+## Number Input
+
+### Example
+
+<Playground>
+  <SDNumberInput
+    label="Number Input"
+    onChange={event => {
+      console.log("I was changed.", event.target.value);
+    }}
+  />
+</Playground>
+
+### Props
+
+<Props of={SDNumberInput} />

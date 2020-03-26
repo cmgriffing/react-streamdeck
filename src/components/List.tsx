@@ -10,7 +10,7 @@ enum OrderedListTypes {
 }
 
 /**
- * @class SDNumberInput
+ * @class SDList
  */
 
 export type Props = {

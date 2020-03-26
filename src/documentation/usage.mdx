@@ -1,0 +1,57 @@
+---
+name: Usage
+route: /usage
+---
+
+# Usage
+
+Using this library will be similar to using any other component library with a couple notable exceptions.
+
+
+## Components
+
+The components are pure components and will work with most existing React applications. They do not use any hooks on their own.
+
+```javascript
+import { SDButton } from 'react-streamdeck';
+
+export default App() {
+  return (
+    <SDButton
+      text="Click Me!!!"
+      onClick={(event) => {
+        console.log('I was clicked.');
+      }}
+    />
+  )
+}
+```
+
+## Hooks
+
+The hooks are a different story. We currently export higher order functions that require dependent hooks to be injected into a factory function. This allows us to not conflict with the existing React hooks versions you may have in your code.
+
+```javascript
+
+import { useState, useEffect } from 'React';
+import { createUseSDAction } from 'react-streamdeck';
+
+const useSDAction = createUseSDAction({
+  useState,
+  useEffect
+})
+
+export default App() {
+
+  const connected = useSDAction('connected');
+
+  return (
+    <div>
+      <pre><code>
+        {JSON.stringify(connected)}
+      </code></pre>
+    </div>
+  )
+}
+
+```

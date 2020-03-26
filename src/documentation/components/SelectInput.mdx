@@ -1,0 +1,50 @@
+---
+name: Select Input
+route: /components/select-input
+menu: 🔌 Components
+---
+
+# Select Input
+
+import { useState } from "react";
+import { Props, Playground } from "docz";
+import SDSelectInput from "../../components/SelectInput";
+import DemoStateContainer from "react-component-component";
+window.selectOptions = [
+  {
+    label: "Option 1",
+    value: "option-1"
+  },
+  {
+    label: "Option 2",
+    value: "option-2"
+  }
+];
+
+## Example
+
+<Playground>
+  <DemoStateContainer
+    initialState={{
+      selectState: ''
+    }}
+  >
+    {({setState, state: { selectState }}) => (
+      <SDSelectInput
+        label="Select Input"
+        selectedOption={selectState}
+        options={selectOptions}
+        onChange={value => {
+          console.log("I was changed.", value);
+          setState({
+            selectState: value
+          })
+        }}
+      />
+    )}
+  </DemoStateContainer>
+</Playground>
+
+## Props
+
+<Props of={SDSelectInput} />

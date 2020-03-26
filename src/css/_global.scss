@@ -1,0 +1,48 @@
+:root {
+  --sdpi-bgcolor: #2d2d2d;
+  --sdpi-background: #3d3d3d;
+  --sdpi-color: #d8d8d8;
+  --sdpi-bordercolor: #3a3a3a;
+  --sdpi-buttonbordercolor: #969696;
+  --sdpi-borderradius: 0px;
+  --sdpi-width: 224px;
+  --sdpi-fontweight: 600;
+  --sdpi-letterspacing: -0.25pt;
+}
+
+html {
+  --sdpi-bgcolor: #2d2d2d;
+  --sdpi-background: #3d3d3d;
+  --sdpi-color: #d8d8d8;
+  --sdpi-bordercolor: #3a3a3a;
+  --sdpi-buttonbordercolor: #969696;
+  --sdpi-borderradius: 0px;
+  --sdpi-width: 224px;
+  --sdpi-fontweight: 600;
+  --sdpi-letterspacing: -0.25pt;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  touch-action: none;
+}
+
+html,
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  font-size: 9pt;
+  background-color: var(--sdpi-bgcolor);
+  color: #9a9a9a;
+}
+
+body {
+  height: 100%;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0;
+  -webkit-overflow-scrolling: touch;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+}

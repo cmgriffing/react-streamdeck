@@ -1,0 +1,27 @@
+---
+name: Button
+route: /components/button
+menu: 🔌 Components
+---
+
+# Button
+
+import { Props, Playground } from "docz";
+import SDButton from "../../components/Button";
+
+import "../../css/sdpi.scss";
+
+## Example
+
+<Playground>
+  <SDButton
+    text="Click Me!!!"
+    onClick={event => {
+      console.log("I was clicked.");
+    }}
+  />
+</Playground>
+
+## Props
+
+<Props of={SDButton} />

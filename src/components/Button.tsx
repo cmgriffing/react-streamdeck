@@ -13,8 +13,8 @@ export default function SDButton(props: Props) {
 
   return (
     <button
-      onClick={_ => {
-        onClick("testing");
+      onClick={event => {
+        onClick(event);
       }}
     >
       {text}

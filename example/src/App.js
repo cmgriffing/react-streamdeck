@@ -273,6 +273,7 @@ export default function App() {
         step={25}
         value={+settings.rangeSliderState}
       />
+
       <SDRadioInput
         label="Radio Test"
         value={settings.radioState}
@@ -296,6 +297,7 @@ export default function App() {
           setSettings(newState);
         }}
       />
+
       <SDCheckbox
         label="Checkbox"
         value={settings.checkboxState}
@@ -307,6 +309,7 @@ export default function App() {
           setSettings(newState);
         }}
       />
+
       <SDMultiCheckbox
         label="MultiCheckbox"
         options={settings.multiCheckboxState.map(checkboxState => {

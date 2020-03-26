@@ -1,0 +1,29 @@
+---
+name: Checkbox
+route: /components/checkbox
+menu: 🔌 Components
+---
+
+# Checkbox
+
+import { useState } from "react";
+import { Props, Playground } from "docz";
+import SDCheckbox from "../../components/Checkbox";
+window.checkboxState = false;
+
+## Example
+
+<Playground>
+  <SDCheckbox
+    label="Checkbox"
+    checked={checkboxState}
+    onChange={value => {
+      console.log("I was changed.", value);
+      checkboxState = value;
+    }}
+  />
+</Playground>
+
+## Props
+
+<Props of={SDCheckbox} />

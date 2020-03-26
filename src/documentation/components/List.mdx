@@ -1,0 +1,103 @@
+---
+name: List
+route: /components/list
+menu: 🔌 Components
+---
+
+# List
+
+import { Props, Playground } from "docz";
+import { SDList, SDListSelect, SDListMultiSelect } from "../../components/List";
+import DemoStateContainer from "react-component-component";
+window.listOptions = [
+  {
+    label: "Option 1",
+    value: "option-1"
+  },
+  {
+    label: "Option 2",
+    value: "option-2"
+  },
+  {
+    label: "Option 3",
+    value: "option-3"
+  }
+];
+
+## SDList (Base)
+
+This is the base List component. Other List components wrap this one with other default config options.
+
+### Example
+
+<Playground>
+  <SDList label="List" options={listOptions} />
+</Playground>
+
+### Props
+
+<Props of={SDList} />
+
+## SDListSelect
+
+This component is a single selectable list that wraps the base component.
+
+### Example
+
+<Playground>
+  <DemoStateContainer
+    initialState={{
+      listState: ''
+    }}
+  >
+    {({setState, state: { listState }}) => (
+      <SDListSelect
+        label="List (selectable)"
+        selectedOptions={listState}
+        options={listOptions}
+        onChange={value => {
+          console.log("I was changed.", value);
+          setState({
+            listState: value
+          })
+        }}
+      />
+    )}
+  </DemoStateContainer>
+</Playground>
+
+### Props
+
+See [Base Props](#props). This wrapper passes `isSelectable: true` under the hood.
+
+## SDListMultiSelect
+
+This component is a single selectable list that wraps the base component.
+
+### Example
+
+<Playground>
+  <DemoStateContainer
+    initialState={{
+      listState: ''
+    }}
+  >
+    {({setState, state: { listState }}) => (
+      <SDListMultiSelect
+        label="List (multi selectable)"
+        selectedOptions={listState}
+        options={listOptions}
+        onChange={value => {
+          console.log("I was changed.", value);
+          setState({
+            listState: value
+          })
+        }}
+      />
+    )}
+  </DemoStateContainer>
+</Playground>
+
+### Props
+
+See [Base Props](#props). This wrapper passes `isSelectable: true` and `isMultiSelect: true` under the hood.

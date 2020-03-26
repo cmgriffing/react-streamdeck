@@ -1,0 +1,36 @@
+---
+name: Installation
+route: /installation
+---
+
+# Installation
+
+Be warned: You are responsible for setting up the React to vanilla js compile process and outputting that into your property inspector.
+
+There is a CLI tool that can help with scaffolding a React-ified boilerplate:
+
+[https://cmgriffing.github.io/create-streamdeck-plugin](https://cmgriffing.github.io/create-streamdeck-plugin)
+
+## Commands
+
+To install run:
+
+```
+yarn add react-streamdeck
+```
+
+or
+
+```
+npm install react-streamdeck
+```
+
+## Import SDPI CSS
+
+Currently we rely on a forked version of the sdpi.css example from StreamDeck's plugin documentation. We plan on working on this in the future.
+
+Importing it into your main App.js is currently the best approach. This will work with most Webpack based apps out of the box such as create-react-app.
+
+```
+import "react-streamdeck/css/sdpi.css"
+```

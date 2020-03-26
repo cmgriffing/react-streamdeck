@@ -1,0 +1,50 @@
+---
+name: Radio Input
+route: /components/radio-input
+menu: 🔌 Components
+---
+
+# Radio Input
+
+import { useState } from "react";
+import { Props, Playground } from "docz";
+import SDRadioInput from "../../components/RadioInput";
+import DemoStateContainer from "react-component-component";
+window.radioOptions = [
+  {
+    label: "Option 1",
+    value: "option-1"
+  },
+  {
+    label: "Option 2",
+    value: "option-2"
+  }
+];
+
+## Example
+
+<Playground>
+  <DemoStateContainer
+    initialState={{
+      radioState: ''
+    }}
+  >
+    {({setState, state: { radioState }}) => (
+      <SDRadioInput
+        label="Radio Input"
+        value={radioState}
+        options={radioOptions}
+        onChange={(event, value) => {
+          console.log("I was changed.", event.target.value, value);
+          setState({
+            radioState: value
+          })
+        }}
+      />
+    )}
+  </DemoStateContainer>
+</Playground>
+
+## Props
+
+<Props of={SDRadioInput} />
