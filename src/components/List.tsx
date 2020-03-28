@@ -14,13 +14,37 @@ enum OrderedListTypes {
  */
 
 export type Props = {
-  selectedOptions: any[];
+  /**
+   * The full list of options to be selected from.
+   */
   options: { value: any; label: string }[];
+  /**
+   * The label. This sits on the outside left margin within the Property Inspector.
+   */
   label: string;
-  onChange: Function;
+  /**
+   * The change event. It sends up the unique list of options selected. This is only used when `isSelectable` is true;
+   */
+  onChange: (values: any[]) => {};
+  /**
+   * Whether to allow a value or values to be selected.
+   */
   isSelectable: boolean;
+  /**
+   * The initially selected values to be passed in.
+   */
+  selectedOptions: any[];
+  /**
+   * Whether multiple items can be selected. Depends on `isSelectable` being true.
+   */
   isMultiSelect: boolean;
+  /**
+   * When true, shows html ordered list. `<ol>` instead of `<ul>`.
+   */
   isOrdered: boolean;
+  /**
+   * The options able to be passed to an `<ol>`.
+   */
   orderedOptions?: {
     isReversed: boolean;
     start: number;
@@ -33,7 +57,9 @@ export function SDList(props: Props) {
     selectedOptions = [],
     options = [],
     label = "",
-    onChange = () => {},
+    onChange = (values: any[]) => {
+      console.log("values", values);
+    },
     isOrdered = false,
     orderedOptions = {
       isReversed: false,

@@ -1,6 +1,6 @@
 {
   "name": "react-streamdeck",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "React component wrappers for Streamdeck plugin UI",
   "author": "cmgriffing",
   "license": "MIT",
@@ -15,13 +15,12 @@
   "scripts": {
     "test": "cross-env CI=1 react-scripts-ts test --env=jsdom",
     "test:watch": "react-scripts-ts test --env=jsdom",
-    "build:components": "rollup -c",
+    "build": "rollup -c",
     "build:styles": "node-sass ./src/css -o ./src/css/",
-    "build": "npm-run-all -s build:components build:styles ",
+    "build:temp": "npm-run-all -s build:components build:styles ",
     "start": "rollup -c -w",
     "prepare": "yarn run build",
-    "predeploy": "cd example && yarn install && yarn run build",
-    "deploy": "gh-pages -d example/build",
+    "deploy": "npm run docz:build && gh-pages -d docs",
     "docz:dev": "docz dev",
     "docz:build": "docz build ",
     "docz:serve": "docz build && docz serve"
@@ -57,6 +56,7 @@
     "rollup": "^0.62.0",
     "rollup-plugin-babel": "^3.0.7",
     "rollup-plugin-commonjs": "^9.1.3",
+    "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-postcss": "^1.6.2",

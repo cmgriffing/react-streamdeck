@@ -4,8 +4,14 @@ import * as React from "react";
  */
 
 export type Props = {
+  /**
+   * The text that will be inside the button
+   */
   text: string;
-  onClick: Function;
+  /**
+   * The click handler. It passes the synthetic click event directly back up.
+   */
+  onClick: (event: any) => {};
 };
 
 export default function SDButton(props: Props) {

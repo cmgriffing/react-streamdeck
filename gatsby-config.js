@@ -1,3 +1,4 @@
 module.exports = {
-  plugins: ["gatsby-plugin-sass"]
+  plugins: [],
+  pathPrefix: "/react-streamdeck"
 };

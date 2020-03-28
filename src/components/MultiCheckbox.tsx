@@ -4,14 +4,25 @@ import * as React from "react";
  * @class SDTextInput
  */
 
-export type Props = {
+type MultiCheckboxAvailableOption = {
+  key: string;
+  value: boolean;
   label: string;
-  options: {
-    key: string;
-    value: boolean;
-    label: string;
-  }[];
-  onChange: Function;
+};
+
+export type Props = {
+  /**
+   * The label. This sits on the outside left margin within the Property Inspector.
+   */
+  label: string;
+  /**
+   * The available options and their checked value.
+   */
+  options: MultiCheckboxAvailableOption[];
+  /**
+   * The change handler. It passes the raw event and the changed options with their updated values.
+   */
+  onChange: (event: any, options: MultiCheckboxAvailableOption[]) => {};
 };
 
 export default function SDMultiCheckbox(props: Props) {
@@ -35,7 +46,7 @@ export default function SDMultiCheckbox(props: Props) {
                     if (option.key === newOption.key) {
                       newOption.value = !newOption.value;
                     }
-                    return newOption;
+                    return newOption as MultiCheckboxAvailableOption;
                   });
                   onChange(event, newOptions);
                 }}

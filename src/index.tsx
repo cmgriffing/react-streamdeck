@@ -1,5 +1,3 @@
-import ExampleComponent from "./components/Example";
-
 import createUseSDAction from "./hooks/action";
 import {
   createUsePluginSettings,
@@ -16,7 +14,6 @@ import SDCheckbox from "./components/Checkbox";
 import SDMultiCheckbox from "./components/MultiCheckbox";
 
 export {
-  ExampleComponent,
   SDNumberInput,
   SDTextInput,
   SDSelectInput,
@@ -34,7 +31,6 @@ export {
 };
 
 export default {
-  ExampleComponent,
   createUseSDAction,
   createUsePluginSettings,
   createUseGlobalSettings,

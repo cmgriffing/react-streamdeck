@@ -8,21 +8,31 @@ menu: 🔌 Components
 
 import { useState } from "react";
 import { Props, Playground } from "docz";
+import DemoStateContainer from "react-component-component";
 import SDCheckbox from "../../components/Checkbox";
-window.checkboxState = false;
 
 ## Example
 
 <Playground>
   <div class="docz-sdpi-wrapper">
-    <SDCheckbox
-      label="Checkbox"
-      checked={checkboxState}
-      onChange={value => {
-        console.log("I was changed.", value);
-        checkboxState = value;
+    <DemoStateContainer
+      initialState={{
+        checkboxState: false
       }}
-    />
+    >
+      {({setState, state: { checkboxState }}) => (
+        <SDCheckbox
+          label="Checkbox"
+          checked={checkboxState}
+          onChange={value => {
+            console.log("I was changed.", value);
+            setState({
+              checkboxState: value
+            })
+          }}
+        />
+      )}
+    </DemoStateContainer>
   </div>
 </Playground>
 

@@ -5,10 +5,22 @@ import * as React from "react";
  */
 
 export type Props = {
+  /**
+   * The initially selected option value.
+   */
   selectedOption: any;
+  /**
+   * The available options to be selected from.
+   */
   options: { value: any; label: string }[];
+  /**
+   * The label. This sits on the outside left margin within the Property Inspector.
+   */
   label: string;
-  onChange: Function;
+  /**
+   * The change event. It passes up the selected option's value.
+   */
+  onChange: (selectedValue: any) => {};
 };
 
 export default function SDSelectInput(props: Props) {

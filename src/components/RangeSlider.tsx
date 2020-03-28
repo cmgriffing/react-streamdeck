@@ -1,16 +1,37 @@
 import * as React from "react";
 
 /**
- * @class SDTextInput
+ * @class SDRangeSlider
  */
 
 export type Props = {
-  value: string;
+  /**
+   * The initial value to be passed in.
+   */
+  value: number;
+  /**
+   * The label. This sits on the outside left margin within the Property Inspector.
+   */
   label: string;
-  onChange: Function;
+  /**
+   * The change event. Passes the raw event back up when the bar is changed. When a min or max is clicked it passes a stubbed event with just a target.value.
+   */
+  onChange: (event: any) => {};
+  /**
+   * The minimum numeric value allowed
+   */
   min: number;
+  /**
+   * The maximum numeric value allowed.
+   */
   max: number;
+  /**
+   * The numeric value to increment or decrement the slider by.
+   */
   step: number;
+  /**
+   * When true, shows the min and max values on their respective ends of the slider.
+   */
   showMinMax: boolean;
 };
 
