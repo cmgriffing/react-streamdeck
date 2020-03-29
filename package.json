@@ -1,6 +1,6 @@
 {
   "name": "react-streamdeck",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "React component wrappers for Streamdeck plugin UI",
   "author": "cmgriffing",
   "license": "MIT",
@@ -20,7 +20,7 @@
     "build:temp": "npm-run-all -s build:components build:styles ",
     "start": "rollup -c -w",
     "prepare": "yarn run build",
-    "deploy": "npm run docz:build && gh-pages -d docs",
+    "deploy": "yarn docz:build && gh-pages -d docs",
     "docz:dev": "docz dev",
     "docz:build": "docz build ",
     "docz:serve": "docz build && docz serve"

@@ -28,7 +28,7 @@ export default {
   ],
   plugins: [
     copy({
-      targets: [{ src: "src/css/sdpi.css", dest: "dist" }]
+      targets: [{ src: "src/css", dest: "dist" }]
     }),
     external(),
     postcss({
