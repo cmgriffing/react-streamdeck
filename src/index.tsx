@@ -4,6 +4,7 @@ import {
   createUseGlobalSettings
 } from "./hooks/settings";
 
+import SDButton from "./components/Button";
 import SDNumberInput from "./components/NumberInput";
 import SDTextInput from "./components/TextInput";
 import SDSelectInput from "./components/SelectInput";
@@ -14,6 +15,7 @@ import SDCheckbox from "./components/Checkbox";
 import SDMultiCheckbox from "./components/MultiCheckbox";
 
 export {
+  SDButton,
   SDNumberInput,
   SDTextInput,
   SDSelectInput,
@@ -34,6 +36,7 @@ export default {
   createUseSDAction,
   createUsePluginSettings,
   createUseGlobalSettings,
+  SDButton,
   SDNumberInput,
   SDTextInput,
   SDSelectInput,
