@@ -3,6 +3,11 @@ declare const $SD: any;
 import createSDAction from "./action";
 import createUseBaseSettings from "./baseSettings";
 
+export enum Settings {
+  didReceiveSettings = "didReceiveSettings",
+  didReceiveGlobalSettings = "didReceiveGlobalSettings"
+}
+
 function createUseSettings(settingsEvent: string) {
   return function(hooks: {
     useReducer: Function;
@@ -27,16 +32,21 @@ function createUseSettings(settingsEvent: string) {
       return [
         settings,
         (newSettings: any) => {
-          $SD.api.setSettings($SD.uuid, newSettings);
-          setSettings(newSettings);
+          if(settingsEvent === Settings.didReceiveSettings) {
+            $SD.api.setSettings($SD.uuid, newSettings);
+            setSettings(newSettings);
+          } else if(settingsEvent === Settings.didReceiveGlobalSettings) {
+            $SD.api.setGlobalSettings($SD.uuid, newSettings);
+            setSettings(newSettings);
+          }
         }
       ];
     };
   };
 }
 
-export const createUsePluginSettings = createUseSettings("didReceiveSettings");
+export const createUsePluginSettings = createUseSettings(Settings.didReceiveSettings);
 
 export const createUseGlobalSettings = createUseSettings(
-  "didReceiveGlobalSettings"
+  Settings.didReceiveGlobalSettings
 );
