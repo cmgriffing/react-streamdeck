@@ -12,7 +12,11 @@ function createUseSDAction(hooks: any) {
 
     useEffect(() => {
       const handler = (jsn: any) => {
-        setState(jsn);
+        if (jsn.payload && jsn.payload.settings) {
+          setState(jsn.payload.settings);
+        } else if (jsn.payload) {
+          setState(jsn.payload);
+        }
       };
 
       $SD.on(`${actionName}`, handler);
