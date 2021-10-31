@@ -4,8 +4,40 @@ import createUseSDAction from "./action";
 import createUseBaseSettings from "./baseSettings";
 import { Settings } from "./types";
 
+function safeGetSettings(...args: any[]) {
+  if ($SD.api) {
+    return $SD.api.getSettings(...args);
+  } else {
+    return $SD.getSettings(...args);
+  }
+}
+
+function safeSetSettings(...args: any[]) {
+  if ($SD.api) {
+    return $SD.api.setSettings(...args);
+  } else {
+    return $SD.setSettings(...args);
+  }
+}
+
+function safeGetGlobalSettings(...args: any[]) {
+  if ($SD.api) {
+    return $SD.api.getGlobalSettings(...args);
+  } else {
+    return $SD.getGlobalSettings(...args);
+  }
+}
+
+function safeSetGlobalSettings(...args: any[]) {
+  if ($SD.api) {
+    return $SD.api.setGlobalSettings(...args);
+  } else {
+    return $SD.setGlobalSettings(...args);
+  }
+}
+
 function createUseSettings(settingsEvent: string) {
-  return function(hooks: {
+  return function (hooks: {
     useReducer: Function;
     useEffect: Function;
     useState: Function;
@@ -18,9 +50,9 @@ function createUseSettings(settingsEvent: string) {
     );
     const useSDAction = createUseSDAction({
       useState,
-      useEffect
+      useEffect,
     });
-    return function(initialSettings: any, connectedResult: any) {
+    return function (initialSettings: any, connectedResult: any) {
       const settingsResult = useSDAction(settingsEvent);
       const [settings, setSettings] = useSettings(
         initialSettings,
@@ -36,15 +68,15 @@ function createUseSettings(settingsEvent: string) {
         settings,
         (newSettings: any) => {
           if (settingsEvent === Settings.didReceiveSettings) {
-            $SD.api.setSettings($SD.uuid, newSettings);
-            $SD.api.getSettings($SD.uuid);
+            safeSetSettings($SD.uuid, newSettings);
+            safeGetSettings($SD.uuid);
             setSettings(newSettings);
           } else if (settingsEvent === Settings.didReceiveGlobalSettings) {
-            $SD.api.setGlobalSettings($SD.uuid, newSettings);
-            $SD.api.getGlobalSettings($SD.uuid);
+            safeSetGlobalSettings($SD.uuid, newSettings);
+            safeGetGlobalSettings($SD.uuid);
             setSettings(newSettings);
           }
-        }
+        },
       ];
     };
   };
