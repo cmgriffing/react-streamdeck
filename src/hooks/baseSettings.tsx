@@ -31,7 +31,7 @@ export default function(
         } else if (settingsEvent === Settings.didReceiveGlobalSettings) {
           createGetGlobalSettings($SD)();
         }
-      }, 300);
+      }, 500);
     }, [connectedResult]);
 
     const reducerResult = useReducer(
