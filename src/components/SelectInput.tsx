@@ -21,10 +21,22 @@ export type Props = {
    * The change event. It passes up the selected option's value.
    */
   onChange: (selectedValue: any) => {};
+  /**
+   * Allow the selection to be empty. Starts as default value when true. Defaults to true
+   */
+  allowEmpty?: boolean;
 };
 
 export default function SDSelectInput(props: Props) {
-  const { selectedOption, options, label, onChange } = props;
+  const { selectedOption, label, onChange } = props;
+
+  let { options, allowEmpty } = props;
+
+  allowEmpty = allowEmpty !== false;
+
+  if (allowEmpty) {
+    options = [{ value: -999, label: "" }, ...options];
+  }
 
   return (
     <div className="sdpi-item">
@@ -45,7 +57,6 @@ export default function SDSelectInput(props: Props) {
           ).value
         }
       >
-        <option key="'-999'" value=""></option>
         {options.map(option => {
           return (
             <option key={option.value} value={option.value}>
