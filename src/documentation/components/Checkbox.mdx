@@ -23,8 +23,8 @@ import SDCheckbox from "../../components/Checkbox";
       {({setState, state: { checkboxState }}) => (
         <SDCheckbox
           label="Checkbox"
-          checked={checkboxState}
-          onChange={value => {
+          value={checkboxState}
+          onChange={(event, value) => {
             console.log("I was changed.", value);
             setState({
               checkboxState: value
